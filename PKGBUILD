@@ -5,7 +5,7 @@
 
 pkgbase=modemmanager
 pkgname=(modemmanager libmm-glib)
-pkgver=1.6.10
+pkgver=1.6.12
 pkgrel=2
 pkgdesc="Mobile broadband modem management service"
 arch=(x86_64)
@@ -13,7 +13,7 @@ url="https://www.freedesktop.org/wiki/Software/ModemManager/"
 license=(GPL2 LGPL2.1)
 depends=('libgudev' 'polkit' 'ppp' 'libqmi' 'libmbim')
 makedepends=(intltool gtk-doc gobject-introspection vala autoconf-archive git)
-_commit=b23413a064f03fb2f2214fb32164bcb4b7037c45 # tags/1.6.10
+_commit=9059729a4cd4b4cbac0854e87122245c20567f1c # tags/1.6.12
 source=("git+https://anongit.freedesktop.org/git/ModemManager/ModemManager#commit=$_commit")
 sha256sums=('SKIP')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
@@ -30,6 +30,7 @@ prepare() {
 
 build() {
   cd ModemManager
+  export PYTHONPATH="/usr/share/glib-2.0"
   ./configure --prefix=/usr \
         --sysconfdir=/etc \
         --localstatedir=/var \
