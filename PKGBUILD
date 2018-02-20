@@ -6,7 +6,7 @@
 pkgbase=modemmanager
 pkgname=(modemmanager libmm-glib)
 pkgver=1.8rc1+6+g0f377f94
-pkgrel=2
+pkgrel=3
 pkgdesc="Mobile broadband modem management service"
 arch=(x86_64)
 url="https://www.freedesktop.org/wiki/Software/ModemManager/"
@@ -34,6 +34,7 @@ build() {
   ./configure --prefix=/usr \
         --sysconfdir=/etc \
         --localstatedir=/var \
+        --sbindir=/usr/bin \
 		--with-dbus-sys-dir=/usr/share/dbus-1/system.d \
         --with-udev-base-dir=/usr/lib/udev \
         --with-polkit=permissive \
